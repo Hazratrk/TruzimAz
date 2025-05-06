@@ -1,47 +1,253 @@
-<!-- about.html -->
-<!DOCTYPE html>
-<html lang="az">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About| Villa Reservation/Rent </title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
-
-  <header class="bg-white shadow-md p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">VillaRent</h1>
-    <nav>
-      <a href="index.html" class="text-blue-600 hover:underline mr-4">Home</a>
-      <a href="about.html" class="text-blue-600 hover:underline">About</a>
-    </nav>
-  </header>
-
-  <section class="max-w-6xl mx-auto p-6">
-    <h2 class="text-3xl font-semibold mb-4">who are we?</h2>
-    <p class="mb-6">
-        Turizimaz offers the opportunity to rent comfortable, spacious and modern villas on very large areas.
-        We offer ideal places to relax with your family and friends.
-    </p>
-
-    <h3 class="text-2xl font-semibold mb-3">our services</h3>
-    <ul class="list-disc list-inside mb-6">
-      <li>Weekly and monthly villa rent</li>
-      <li>Cleaning and technical support</li>
-      <li>24/7 customer service</li>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Turizimaz</title>
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Turizimaz</div>
+    <ul class="flex space-x-6 text-gray-700">
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa-regular fa-building"></i>
+                <span>Apartments</span>
+            </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa-solid fa-phone"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="about.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+        </li>
+           <!-- Login -->
+<li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+  <a href="login.html" class="flex items-center space-x-2">
+      <i class="fa-solid fa-user"></i>
+      <span>Login</span>
+  </a>
+</li>
+       <!-- Register -->
+<li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+  <a href="register.html" class="flex items-center space-x-2">
+      <i class="fa-solid fa-user-plus"></i>
+      <span>Register</span>
+  </a>
+</li>
     </ul>
+</nav>
 
-    <h3 class="text-2xl font-semibold mb-3">Photos</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <img src="https://cdn.pixabay.com/photo/2020/04/28/04/03/villa-5102551_1280.jpg" alt="Photos" class="rounded-lg shadow-md">
-      <img src="https://static.independent.co.uk/2024/01/09/12/FAO_83054_Villa_Mangas_Albufeira_0723_01_RGB-136-DPI-For-Web.jpg" alt="Villa Photos" class="rounded-lg shadow-md">
-      <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/295090917.jpg?k=d17621b71b0eaa0c7a37d8d8d02d33896cef75145f61e7d96d296d88375a7d39&o=&hp=1" alt="Villa Photos" class="rounded-lg shadow-md">
-    </div>
-  </section>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">With over 10 years of experience, we provide premium living spaces</p>
+        </div>
+    </section>
 
-  <footer class="text-center py-4 mt-10 text-gray-600">
-    &copy; 2025 VillaRent. All rights reserved.
-  </footer>
+    <!-- About Company -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our company</h2>
+                    <p class="text-gray-600 mb-6">
+                      Our company, operating since 2013, provides premium apartment and villa rental services in Baku and surrounding regions.</p>
+                    <p class="text-gray-600 mb-6">Our main priority is to provide our clients with high-quality living spaces and services.</p>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <p class="text-blue-800 italic">"Each of our clients is important to us and their comfort is our top priority."</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Workforce" 
+                         class="w-full h-auto rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Our Values -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">ADVANTAGES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Quality Destinations</h3>
+                    <p class="text-gray-600">We only include apartments and villas that meet high standards in our portfolio.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">friendly service and nice staff</h3>
+                    <p class="text-gray-600">More than 10 years of experience and hundreds of satisfied customers are the driving force behind our reliability.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">24/7 customer service</h3>
+                    We are always at your service. You can contact us for any questions you may have.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="py-16 bg-blue-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">10+</div>
+                    <div class="text-lg">Years of Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">500+</div>
+                    <div class="text-lg">Housing Portfolio</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">10K+</div>
+                    <div class="text-lg">Satisfied Customer</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">7/24</div>
+                    <div class="text-lg">Hour of Service</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8eW91bmclMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Ceo" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Karimzada Hazrat</h3>
+                        <p class="text-blue-600 mb-3">CEO & Founder</p>
+                        <p class="text-gray-600">Founder and leader of our company with over 10 years of experience.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://media.istockphoto.com/id/1180616266/photo/portrait-of-young-man-in-yellow-t-shirt-at-backyard.jpg?s=612x612&w=0&k=20&c=Ky8sOPItZUWuY704m3HoLbvzEFhecKBxsPCP71FCHw8=" alt="manager" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Farhadli Rashad</h3>
+                        <p class="text-blue-600 mb-3">Housing Manager</p>
+                        <p class="text-gray-600">It plays a key role in managing our housing portfolio.</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://www.shutterstock.com/image-photo/isolated-shot-young-handsome-male-600nw-762790210.jpg" alt="customer services" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Tima</h3>
+                        <p class="text-blue-600 mb-3">Customer Services</p>
+                        <p class="text-gray-600">We provide 24/7 support to our customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Adress</h3>
+                    <p class="text-gray-600">Nizami Street AF BUSSİNES CENTER</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Phone</h3>
+                    <p class="text-gray-600">+994-50-211-64-64
+                    </p>
+                    <p class="text-gray-600">+994-55-211-64-02</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Email</h3>
+                    <p class="text-gray-600">info@turizimaz</p>
+                    <p class="text-gray-600">support@turizimaz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Villa & Apartment Rental</h3>
+                    <p class="text-gray-400">Premium accommodations</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>© 2025 Villa & Apartment Rental. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
