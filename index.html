@@ -51,14 +51,59 @@
   </a>
 </li>
      <!-- Register -->
-<li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-  <a href="register.html" class="flex items-center space-x-2">
-      <i class="fa-solid fa-user-plus"></i>
-      <span>Register</span>
-  </a>
-</li>
+     <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+      <a href="register.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Register</span>
+      </a>
+    </li>
     </ul>
   </nav>
+ 
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center h-[90vh]" style="background-image: url('https://images1.apartments.com/i2/jHZHhazWWtPHTwvrRrq3aoED7_Rd7gAna1ZeS_G0pjw/117/image.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white px-4">
+    <h1 class="text-5xl font-extrabold mb-4">Welcome to <span class="text-blue-400">Turizimaz</span></h1>
+    <p class="text-xl mb-6 max-w-2xl">Discover the most luxurious villas around the world and book your dream getaway today.</p>
+    <a href="#villas" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">Explore Villas</a>
+  </div>
+</section>
+
+
+<!-- Scroll Target (Villa Section) -->
+<main id="villas" class="bg-gray-50 py-16">
+  <section class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Luxury Villas for Rent</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Villa Cards - copy-paste from earlier -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition hover:scale-105 duration-300">
+        <img src="https://www.rentavilla.com/_default_upload_bucket/image-thumb__178911__RAV_Home_Slide/Villa%20Rental%20Riviera%20Maya%20Mexico.webp" alt="Villa Riviera Maya" class="w-full h-60 object-cover">
+        <div class="p-5">
+          <h3 class="text-2xl font-semibold text-gray-800">Riviera Maya, Mexico</h3>
+          <p class="text-gray-600 mt-2">Oceanfront villa with private pool and stunning sunset views.</p>
+          <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book Now</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition hover:scale-105 duration-300">
+        <img src="https://balivillarealty.com/wp-content/uploads/2025/02/IPB00634-5.webp" alt="Bali Villa" class="w-full h-60 object-cover">
+        <div class="p-5">
+          <h3 class="text-2xl font-semibold text-gray-800">Bali, Indonesia</h3>
+          <p class="text-gray-600 mt-2">Tropical retreat surrounded by nature, ideal for relaxation.</p>
+          <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book Now</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition hover:scale-105 duration-300">
+        <img src="https://dbz-images.dubizzle.com/images/2025/04/30/ee31d5b1-6758-4faa-9b57-b63be364e3c5/361747bd4e734a6da412dbd0f99da318-.jpg?impolicy=dpv" alt="Dubai Villa" class="w-full h-60 object-cover">
+        <div class="p-5">
+          <h3 class="text-2xl font-semibold text-gray-800">Dubai, UAE</h3>
+          <p class="text-gray-600 mt-2">Modern villa with luxury amenities in a prime location.</p>
+          <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
   </header>
   <script type="module" src="./src/jsfolder/login.js"></script>
 </body>

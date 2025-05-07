@@ -1,1 +1,95 @@
-test
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <title>Turizimaz</title>
+</head>
+
+<body>
+
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Turizimaz</div>
+    <ul class="flex space-x-6 text-gray-700">
+      <!-- Homee -->
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </li>
+      <!-- Apartment -->
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <i class="fa-regular fa-building"></i>
+        <span>Apartments</span>
+      </li>
+      <!-- contact -->
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <i class="fa-solid fa-phone"></i>
+        <span>Contact</span>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="about.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+    <!-- Login -->
+<li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+  <a href="login.html" class="flex items-center space-x-2">
+      <i class="fa-solid fa-user"></i>
+      <span>Login</span>
+  </a>
+</li>
+     <!-- Register -->
+     <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+      <a href="register.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Register</span>
+      </a>
+    </li>
+    </ul>
+  </nav>
+  
+    <!-- Contact Header -->
+    <section class="bg-blue-600 text-white py-20 text-center">
+      <h1 class="text-4xl font-bold mb-2">Contact Us</h1>
+      <p class="text-lg">We’d love to hear from you. Send us a message and we’ll get back to you as soon as possible.</p>
+    </section>
+  
+    <!-- Contact Form -->
+    <section class="py-16 px-4 max-w-4xl mx-auto">
+      <form class="bg-white shadow-lg rounded-lg p-8 space-y-6">
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Your Name</label>
+          <input type="text" placeholder="John Doe" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
+          <input type="email" placeholder="john@example.com" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Message</label>
+          <textarea rows="6" placeholder="Write your message here..." class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Send Message</button>
+      </form>
+    </section>
+  
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 text-center">
+      <p>&copy; 2025 Turizimaz. All rights reserved.</p>
+    </footer>
+  
+  </body>
+  
+  </html>
