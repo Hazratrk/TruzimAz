@@ -5,7 +5,7 @@
       "title": "3-Room Apartment",
       "location": "Baku, Yasamal",
       "nightPrice": 150,
-      "image": "./src/image/home1.jpg",
+      "image": "https://spectrumproperties.co.ug/wp-content/uploads/2021/08/Rentals-houses-for-sale-in-Kira-town-42-592x444.jpg?v=1627965969",
       "features": [
         "Spacious rooms",
         "Bright",
@@ -20,7 +20,7 @@
       "title": "2-Room Apartment",
       "location": "Baku, Nasimi",
       "nightPrice": 100,
-      "image": "./src/image/home2.jpg",
+      "image": "https://images.westsiderentals.com/i2/eHmpKFjuC8okmIa-lnNK1nehTVL8ZYn3kvxfYI0regg/117/image.png?p=1",
       "features": [
         "Clean",
         "Newly renovated",
@@ -36,7 +36,7 @@
       "title": "4-Room Apartment",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home4.jpg",
+      "image": "https://casco-media-prod.global.ssl.fastly.net/5e28e409-200f-5f53-a35b-ccb1b1427821/cee88f69787db3d17ef1d8ad36264e06.jpg?width=600&auto=webp",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -51,7 +51,7 @@
       "title": "3-Room Apartment",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home5.jpg",
+      "image": "https://images1.apartments.com/i2/l-zydgTUg-EKRzp80OwbDpfalM1eBp0PRnqHQhBZ2n8/117/ridge-road-homes-green-bay-wi-single-story-3-bed2-bath-home.jpg?p=1",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -66,7 +66,7 @@
       "title": "2-Room Apartment",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home6.jpg",
+      "image": "https://dunevacationrentals.com/wp-content/uploads/2023/08/BRKT0421_2_3_4_5_6_7-scaled.jpg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -81,7 +81,7 @@
       "title": "2-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home7.jpg",
+      "image": "https://pi.movoto.com/p/4002/1oup2adzxpab_0_BBU6Ye_t.jpeg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -96,7 +96,7 @@
       "title": "1-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home8.png",
+      "image": "https://grkids.com/wp-content/uploads/2021/01/family-friendly-Saugatuck-pool-house-rental.jpg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -111,7 +111,7 @@
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home9.jpg",
+      "image": "https://www.eahhousing.org/wp-content/uploads/2022/10/Slide-Magnolia-Villas_eahhousing_Streetview_2022Apr.jpeg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -126,7 +126,7 @@
       "title": "4-Room Villa",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home10.jpg",
+      "image": "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/05/29/USAT/73892509007-image-7.png?crop=1001,563,x0,y150&width=660&height=371&format=pjpg&auto=webp",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -141,7 +141,7 @@
       "title": "4-Room Villa",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home11.jpg",
+      "image": "https://cdn.prod.website-files.com/63bb18ca9304d7381a251c1f/63da6986a68347251dc5020d_PPD-blog-rent-750x400.jpeg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -156,7 +156,7 @@
       "title": "4-Room Villa",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home12.jpg",
+      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVudGFsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -171,7 +171,7 @@
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home13.jpg",
+      "image": "https://grkids.com/wp-content/uploads/2021/01/Empire-pool-house-rental.jpg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -186,7 +186,7 @@
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home14.jpg",
+      "image": "https://apartmentlove.com/blogPhotos/1629700925/Garage%20Apartments%20for%20Rent%20in%20Houston,%20Texas.jpg",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -201,7 +201,7 @@
       "title": "4-Room Frame",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home15.jpg",
+      "image": "https://images1.forrent.com/i2/M6k1fhDeEaHCRFwZixHsDvLb-wqxTqtYxQKQ3DALv_s/117/image.jpg?p=1",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -216,7 +216,7 @@
       "title": "3-Room Apartment",
       "location": "Baku, Khazar",
       "nightPrice": 250,
-      "image": "./src/image/home16.jpg",
+      "image": "https://images1.forrent.com/i2/EzoF1w_Oma843aTFIB68D0ObS8alb8lusquFTjlsnck/117/image.jpg?p=1",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -318,6 +318,14 @@
       "email": "hzrt789@gmail.com",
       "fullname": "Adil Rzayev",
       "lastname": "salamov"
+    },
+    {
+      "id": "1d00",
+      "username": "Realbet",
+      "password": "123456789",
+      "email": "emilgasarayev@gmail.com",
+      "fullname": "Adil Rzayev",
+      "lastname": "aliyev"
     }
   ]
 }
