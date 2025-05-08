@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <title>Turizimaz</title>
+</head>
+
+<body>
+    <body> 
+        <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+          <div class="text-2xl font-bold">Turizimaz</div>
+          <ul class="flex space-x-6 text-gray-700 items-center">
+            <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+              <a href="index.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+              <a href="apartments.html" class="flex items-center space-x-2">
+                <i class="fa-regular fa-building"></i>
+                <span>Apartments</span>
+              </a>
+            </li>
+            <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+              <a href="contact.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-phone"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+              <a href="about.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+              </a>
+            </li>
+            <div id="authSection" class="flex items-center space-x-4">
+              <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+                <a href="login.html" class="flex items-center space-x-2">
+                  <i class="fa-solid fa-user"></i>
+                  <span>Login</span>
+                </a>
+              </li>
+              <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+                <a href="register.html" class="flex items-center space-x-2">
+                  <i class="fa-solid fa-user-plus"></i>
+                  <span>Register</span>
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
+</head>
+            <style>
+                .stat-card {
+                    background-color: #f8fafc;
+                    border-left: 4px solid #3b82f6;
+                }
+            </style>
+        </head>
+        <body class="bg-gray-50">
+            <div class="container mx-auto py-8 px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Profile Header -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6 border border-gray-200">
+                        <div class="bg-blue-600 h-32"></div>
+                        <div class="px-6 py-4 flex items-start -mt-16">
+                            <img id="profileImage" src="https://randomuser.me/api/portraits/men/1.jpg" 
+                                 class="w-24 h-24 rounded-full border-4 border-white bg-gray-200 object-cover shadow">
+                            <div class="ml-6 flex-1">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h1 id="userFullname" class="text-2xl font-bold text-gray-800"></h1>
+                                        <p id="userEmail" class="text-gray-600"></p>
+                                    </div>
+                                    <span id="memberSince" class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Balance & Actions -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <!-- Balance Card -->
+                        <div class="stat-card p-6 rounded-lg shadow-sm">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800">Balance</h3>
+                            <div class="flex items-end mb-4">
+                                <span id="balanceAmount" class="text-3xl font-bold mr-2 text-gray-900">0</span>
+                                <span class="text-gray-600">AZN</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="openAddBalanceModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center">
+                                    <i class="fas fa-plus mr-2"></i>Add Funds
+                                </button>
+                                <button onclick="openWithdrawModal()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center">
+                                    <i class="fas fa-minus mr-2"></i>Withdraw
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- Quick Stats -->
+                        <div class="stat-card p-6 rounded-lg shadow-sm">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800">Activity</h3>
+                            <div class="space-y-3 text-gray-700">
+                                <div class="flex justify-between">
+                                    <span>Total Rentals:</span>
+                                    <span id="totalRents" class="font-semibold text-blue-700">0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Spent:</span>
+                                    <span id="totalSpent" class="font-semibold text-blue-700">0 AZN</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Member for:</span>
+                                    <span id="memberDuration" class="font-semibold text-blue-700">0 days</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Security -->
+                        <div class="stat-card p-6 rounded-lg shadow-sm">
+                            <h3 class="text-lg font-semibold mb-4 text-gray-800">Security</h3>
+                            <div class="space-y-4 text-gray-700">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Password</span>
+                                        <a href="#" class="text-blue-600 text-sm hover:underline">Change</a>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                                    <span>Account Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Rental History -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                        <div class="px-6 py-4 border-b">
+                            <h3 class="text-lg font-semibold text-gray-800">Recent Rentals</h3>
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <div id="rentHistory" class="p-6">
+                                <p class="text-gray-500 text-center">No rental history yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Add Balance Modal -->
+            <div id="addBalanceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg max-w-md w-full p-6 shadow-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Add Funds</h3>
+                        <button onclick="closeModal('addBalanceModal')" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Amount (AZN)</label>
+                        <input type="number" id="addAmount" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" min="5" value="10">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Payment Method</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option>Credit Card</option>
+                            <option>E-Wallet</option>
+                            <option>Bank Transfer</option>
+                        </select>
+                    </div>
+                    <button onclick="addBalance()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition font-medium">
+                        Proceed to Payment
+                    </button>
+                </div>
+            </div>
+        
+            <script src="./src/jsfolder/profile.js"></script>
+        </body>
+        </html>

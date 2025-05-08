@@ -18,36 +18,42 @@
   <title>Turizimaz| REGISTER</title>
 </head>
 <body>  
-    <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
-        <div class="text-2xl font-bold text-blue-600">
-            <a href="index.html">TurizimAz</a>
-        </div>
-        <ul class="flex space-x-6 text-gray-700">
-            <li class="hover:text-blue-800 cursor-pointer">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="hover:text-blue-800 cursor-pointer">
-                <a href="apartments.html" class="flex items-center space-x-2">
-                    <i class="fa-regular fa-building"></i>
-                    <span>Apartments</span>
-                </a>
-            </li>
-            <li class="hover:text-blue-800 cursor-pointer">
-                <a href="contact.html" class="flex items-center space-x-2">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-            <li class="hover:text-blue-800 cursor-pointer">
-                <a href="about.html" class="flex items-center space-x-2">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span>About</span>
-                </a>
-            </li>
-            <li class="hover:text-blue-800 cursor-pointer">
+   
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Turizimaz</div>
+    <ul class="flex space-x-6 text-gray-700 items-center">
+        <!-- Home -->
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </li>
+        
+        <!-- Apartments -->
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="apartments.html" class="flex items-center space-x-2">
+                <i class="fa-regular fa-building"></i>
+                <span>Apartments</span>
+            </a>
+        </li>
+        
+        <!-- Contact -->
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <i class="fa-solid fa-phone"></i>
+            <span>Contact</span>
+        </li>
+        
+        <!-- About -->
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="about.html" class="flex items-center space-x-2">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>About</span>
+            </a>
+        </li>
+
+
+        <div id="authSection">
+            
+            <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
                 <a href="login.html" class="flex items-center space-x-2">
                     <i class="fa-solid fa-user"></i>
                     <span>Login</span>
@@ -58,9 +64,10 @@
                     <i class="fa-solid fa-user-plus"></i>
                     <span>Register</span>
                 </a>
-              </li>
-        </ul>
-    </nav>
+            </li>
+        </div>
+    </ul>
+</nav>
     
 
 <section id="register" class="py-16 bg-gray-100">
@@ -119,7 +126,7 @@
 
 
 
-
+    <script src="./src/jsfolder/auth.js"></script>
   <script src="./src/jsfolder/register.js"></script>
 </body>
 

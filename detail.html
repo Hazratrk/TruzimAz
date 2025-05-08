@@ -34,42 +34,52 @@
 </head>
 <body class="bg-gray-50">
   <!-- Navbar (same as your main page) -->
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
-    <div class="text-2xl font-bold text-blue-600">TurizimAz</div>
-    <ul class="flex space-x-6 text-gray-700">
-      <li class="hover:text-blue-800 cursor-pointer">
-        <a href="index.html" class="flex items-center space-x-2">
-          <i class="fa-solid fa-house"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li class="hover: text-blue-800 cursor-pointer">
-        <a href="apartments.html" class="flex items-center space-x-2">
-          <i class="fa-regular fa-building"></i>
-          <span>Apartments</span>
-        </a>
-      </li>
-      <li class="hover:text-blue-800 cursor-pointer">
-        <a href="contact.html" class="flex items-center space-x-2">
-          <i class="fa-solid fa-phone"></i>
-          <span>Contact</span>
-        </a>
-      </li>
-      <li class="hover:text-blue-800 cursor-pointer">
-        <a href="about.html" class="flex items-center space-x-2">
-          <i class="fa-solid fa-circle-info"></i>
-          <span>About</span>
-        </a>
-      </li>
-      <li class="hover:text-blue-800 cursor-pointer">
-        <a href="login.html" class="flex items-center space-x-2">
-          <i class="fa-solid fa-user"></i>
-          <span>Login</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+ 
 
+
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="text-2xl font-bold">Turizimaz</div>
+      <ul class="flex space-x-6 text-gray-700 items-center">
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="index.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="apartments.html" class="flex items-center space-x-2">
+            <i class="fa-regular fa-building"></i>
+            <span>Apartments</span>
+          </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="contact.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-phone"></i>
+            <span>Contact</span>
+          </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="about.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <div id="authSection" class="flex items-center space-x-4">
+          <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="login.html" class="flex items-center space-x-2">
+              <i class="fa-solid fa-user"></i>
+              <span>Login</span>
+            </a>
+          </li>
+          <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+            <a href="register.html" class="flex items-center space-x-2">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Register</span>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
   <div class="container mx-auto my-8 px-4">
     <div id="apartment-detail" class="bg-white rounded-lg shadow-lg overflow-hidden">
       <!-- Apartment details will be dynamically inserted here -->
@@ -106,6 +116,7 @@
       </div>
     </div>
   </footer>
+  <script src="./src/jsfolder/auth.js"></script>
 <script src="./src/jsfolder/detail.js"></script>
 </body>
 </html>

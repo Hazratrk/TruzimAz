@@ -11,7 +11,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     };
   
     if (formData.password !== formData.confirm_password) {
-      displayError('Şifrə və təsdiqləmə şifrəsi eyni olmalıdır.');
+      displayError('Password and confrimation password must be the same.');
       return;
     }
   
@@ -31,7 +31,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Server cavab vermədi");
+          throw new Error("Server not working");
         }
         return response.json();
       })
@@ -40,7 +40,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
       })
       .catch(error => {
         console.error('Fetch Error:', error);
-        displayError('Serverlə əlaqə qurulmadı.');
+        displayError('Server connection failed.');
       });
   });
   
