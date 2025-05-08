@@ -3,8 +3,8 @@
     {
       "id": "1",
       "title": "3-Room Apartment",
-      "location": "Baku, Yasamal",
-      "nightPrice": 150,
+      "location": "Baku, 8-mkr",
+      "nightPrice": 100,
       "image": "https://spectrumproperties.co.ug/wp-content/uploads/2021/08/Rentals-houses-for-sale-in-Kira-town-42-592x444.jpg?v=1627965969",
       "features": [
         "Spacious rooms",
@@ -19,7 +19,7 @@
       "id": "2",
       "title": "2-Room Apartment",
       "location": "Baku, Nasimi",
-      "nightPrice": 100,
+      "nightPrice": 330,
       "image": "https://images.westsiderentals.com/i2/eHmpKFjuC8okmIa-lnNK1nehTVL8ZYn3kvxfYI0regg/117/image.png?p=1",
       "features": [
         "Clean",
@@ -34,8 +34,8 @@
     {
       "id": "3",
       "title": "4-Room Apartment",
-      "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "location": "Baku, 6-mkr",
+      "nightPrice": 320,
       "image": "https://casco-media-prod.global.ssl.fastly.net/5e28e409-200f-5f53-a35b-ccb1b1427821/cee88f69787db3d17ef1d8ad36264e06.jpg?width=600&auto=webp",
       "features": [
         "Large garden",
@@ -49,8 +49,8 @@
     {
       "id": "4",
       "title": "3-Room Apartment",
-      "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "location": "Baku, Azadliq",
+      "nightPrice": 210,
       "image": "https://images1.apartments.com/i2/l-zydgTUg-EKRzp80OwbDpfalM1eBp0PRnqHQhBZ2n8/117/ridge-road-homes-green-bay-wi-single-story-3-bed2-bath-home.jpg?p=1",
       "features": [
         "Large garden",
@@ -64,8 +64,8 @@
     {
       "id": "5",
       "title": "2-Room Apartment",
-      "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "location": "Baku, Musviq",
+      "nightPrice": 260,
       "image": "https://dunevacationrentals.com/wp-content/uploads/2023/08/BRKT0421_2_3_4_5_6_7-scaled.jpg",
       "features": [
         "Large garden",
@@ -79,8 +79,8 @@
     {
       "id": "6",
       "title": "2-Room Frame",
-      "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "location": "Baku, Bileceri",
+      "nightPrice": 143,
       "image": "https://pi.movoto.com/p/4002/1oup2adzxpab_0_BBU6Ye_t.jpeg",
       "features": [
         "Large garden",
@@ -95,7 +95,7 @@
       "id": "7",
       "title": "1-Room Frame",
       "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "nightPrice": 125,
       "image": "https://grkids.com/wp-content/uploads/2021/01/family-friendly-Saugatuck-pool-house-rental.jpg",
       "features": [
         "Large garden",
@@ -110,7 +110,7 @@
       "id": "8",
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "nightPrice": 350,
       "image": "https://www.eahhousing.org/wp-content/uploads/2022/10/Slide-Magnolia-Villas_eahhousing_Streetview_2022Apr.jpeg",
       "features": [
         "Large garden",
@@ -125,7 +125,7 @@
       "id": "9",
       "title": "4-Room Villa",
       "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "nightPrice": 222,
       "image": "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/05/29/USAT/73892509007-image-7.png?crop=1001,563,x0,y150&width=660&height=371&format=pjpg&auto=webp",
       "features": [
         "Large garden",
@@ -170,7 +170,7 @@
       "id": "12",
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
-      "nightPrice": 250,
+      "nightPrice": 140,
       "image": "https://grkids.com/wp-content/uploads/2021/01/Empire-pool-house-rental.jpg",
       "features": [
         "Large garden",
@@ -243,6 +243,90 @@
       "startDate": "2025-05-20",
       "endDate": "2025-05-22",
       "totalPrice": 200
+    },
+    {
+      "id": "aedb",
+      "apartmentId": "1",
+      "location": "salan",
+      "startDate": "0012-12-12",
+      "endDate": "28719-07-12"
+    },
+    {
+      "id": "851e",
+      "apartmentId": "1",
+      "location": "salam",
+      "startDate": "275760-08-29",
+      "endDate": "275760-02-03"
+    },
+    {
+      "id": "222e",
+      "apartmentId": "1",
+      "location": "2e2",
+      "startDate": "0002-02-02",
+      "endDate": "0002-02-02"
+    },
+    {
+      "id": "850c",
+      "apartmentId": "1",
+      "location": "resad",
+      "startDate": "0002-02-02",
+      "endDate": "0024-02-02"
+    },
+    {
+      "id": "b417",
+      "name": "555hkr",
+      "startDate": "2022-02-20",
+      "endDate": "2222-02-22",
+      "apartmentId": "2"
+    },
+    {
+      "id": "33be",
+      "name": "hzrt",
+      "startDate": "2222-02-22",
+      "endDate": "2222-02-22",
+      "apartmentId": "2"
+    },
+    {
+      "id": "1d2b",
+      "name": "hzrt",
+      "startDate": "2222-02-22",
+      "endDate": "2023-02-22",
+      "apartmentId": "2"
+    },
+    {
+      "id": "c089",
+      "name": "Adil Rzayev",
+      "startDate": "2222-02-22",
+      "endDate": "3333-02-22",
+      "apartmentId": "2"
+    },
+    {
+      "id": "d33b",
+      "name": "resad olmasin",
+      "startDate": "2222-02-22",
+      "endDate": "3333-02-22",
+      "apartmentId": "2"
+    },
+    {
+      "id": "d734",
+      "name": "555hkr",
+      "startDate": "2222-02-22",
+      "endDate": "2222-02-22",
+      "apartmentId": "3"
+    },
+    {
+      "id": "1843",
+      "name": "resad olmasin",
+      "startDate": "22222-02-22",
+      "endDate": "2222-02-22",
+      "apartmentId": "3"
+    },
+    {
+      "id": "1d30",
+      "name": "resad olmasin",
+      "startDate": "2222-02-22",
+      "endDate": "2222-02-22",
+      "apartmentId": "5"
     }
   ],
   "contact": [
@@ -326,6 +410,14 @@
       "email": "emilgasarayev@gmail.com",
       "fullname": "Adil Rzayev",
       "lastname": "aliyev"
+    },
+    {
+      "id": "3e01",
+      "username": "Realbet",
+      "password": "123",
+      "email": "hzrt789@gmail.com",
+      "fullname": "Adil Rzayev",
+      "lastname": "salamov"
     }
   ]
 }

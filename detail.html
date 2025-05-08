@@ -29,6 +29,8 @@
     }
   </style>
   
+  
+  
 </head>
 <body class="bg-gray-50">
   <!-- Navbar (same as your main page) -->
@@ -71,9 +73,10 @@
   <div class="container mx-auto my-8 px-4">
     <div id="apartment-detail" class="bg-white rounded-lg shadow-lg overflow-hidden">
       <!-- Apartment details will be dynamically inserted here -->
-    </div>
-  </div>
+   
+      <a href="reservation.html?id=${apt.id}">Reservation</a>
 
+  
   <!-- Footer (same as your main page) -->
   <footer class="bg-gray-800 text-white py-8 px-4">
     <div class="container mx-auto">
@@ -97,12 +100,12 @@
           </a>
         </div>
       </div>
+      
       <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
         <p>© 2025 TurizimAz. All rights reserved.</p>
       </div>
     </div>
   </footer>
-
-  <script src="./src/jsfolder/detail.js"></script>
+<script src="./src/jsfolder/detail.js"></script>
 </body>
 </html>
