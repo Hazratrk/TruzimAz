@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Turizimaz</title>
+</head>
+
+<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Turizimaz</div>
+    <ul class="flex space-x-6 text-gray-700 items-center">
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="apartments.html" class="flex items-center space-x-2">
+          <i class="fa-regular fa-building"></i>
+          <span>Apartments</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="contact.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-phone"></i>
+          <span>Contact</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="about.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <div id="authSection" class="flex items-center space-x-4">
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="login.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-user"></i>
+            <span>Login</span>
+          </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="register.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Register</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+  <style>
+    .contact-card {
+        transition: all 0.3s ease;
+    }
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .form-input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Contact Main Section -->
+<div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+            Contact <span class="text-blue-600">Us</span>
+        </h1>
+        <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
+            If you have any questions or suggestions, feel free to contact us.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Contact Card 1 -->
+        <div class="contact-card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+            <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">Phone</h3>
+            </div>
+            <p class="text-gray-600">+994 12 345 67 89</p>
+            <p class="text-gray-600 mt-1">+994 50 123 45 67</p>
+        </div>
+
+        <!-- Contact Card 2 -->
+        <div class="contact-card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+            <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">Email</h3>
+            </div>
+            <p class="text-gray-600">info@turizimaz.com</p>
+            <p class="text-gray-600 mt-1">support@turizimaz.com</p>
+        </div>
+
+        <!-- Contact Card 3 -->
+        <div class="contact-card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+            <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="ml-4 text-lg font-medium text-gray-900">Address</h3>
+            </div>
+            <p class="text-gray-600">Baku, Nizami Street 203B</p>
+            <p class="text-gray-600 mt-1">AZ1000, Azerbaijan</p>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Left Side (Map) -->
+            <div class="bg-gray-100 p-6">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428490145603!2d49.85175631535441!3d40.37719487936982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                    width="100%" 
+                    height="100%" 
+                    style="min-height: 400px; border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Right Side (Form) -->
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Send a Message</h2>
+                
+                <form id="contactForm" class="space-y-6">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            required
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            required
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Subject -->
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <select 
+                            id="subject" 
+                            required
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="" disabled selected>Select</option>
+                            <option value="booking">Booking</option>
+                            <option value="question">Question</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="suggestion">Suggestion</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea 
+                            id="message" 
+                            rows="4" 
+                            required
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Send
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Your message has been successfully sent! We will contact you soon.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./src/jsfolder/auth.js"></script>
+<script src="./src/jsfolder/contact.js"></script>
+</body>
+</html>
