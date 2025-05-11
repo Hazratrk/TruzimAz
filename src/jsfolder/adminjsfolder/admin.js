@@ -88,3 +88,48 @@ lə
     }
 });
 
+// src/jsfolder/admin.js faylına əlavə edin
+document.addEventListener('DOMContentLoaded', function() {
+    // Naviqasiya linklərinə hadisə əlavə et
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const page = this.getAttribute('href').replace('.html', '');
+        loadPage(page);
+        history.pushState(null, '', `${page}.html`);
+      });
+    });
+  
+    // Səhifə yükləmə funksiyası
+    async function loadPage(page) {
+      try {
+        const response = await fetch(`./${page}.html`);
+        const html = await response.text();
+        
+        // Əsas məzmunu dəyiş
+        document.querySelector('main').innerHTML = 
+          new DOMParser().parseFromString(html, 'text/html')
+            .querySelector('main').innerHTML;
+        
+        // Aktiv linki güncəllə
+        document.querySelectorAll('nav a').forEach(a => {
+          a.classList.toggle('bg-gray-700', a.getAttribute('href') === `${page}.html`);
+          a.classList.toggle('text-white', a.getAttribute('href') === `${page}.html`);
+          a.classList.toggle('text-gray-300', a.getAttribute('href') !== `${page}.html`);
+        });
+        
+        // Başlığı dəyiş
+        document.querySelector('header h2').textContent = 
+          page.charAt(0).toUpperCase() + page.slice(1);
+        
+      } catch (err) {
+        console.error('Səhifə yüklənərkən xəta:', err);
+      }
+    }
+  
+    // Browser geri/irəli düymələri üçün
+    window.addEventListener('popstate', () => {
+      const page = location.pathname.split('/').pop().replace('.html', '');
+      loadPage(page);
+    });
+  });

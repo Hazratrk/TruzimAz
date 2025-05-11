@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <link rel="stylesheet" href="./src/style/style.css">
+  <link rel="stylesheet" href="/src/style/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -25,43 +25,43 @@
             <nav class="p-4">
                 <ul class="space-y-2">
                     <li>
-                        <a href="dashboard.html" class="flex items-center p-3 rounded-lg bg-gray-700 text-white">
+                        <a href="/dashboard.html" class="flex items-center p-3 rounded-lg bg-gray-700 text-white">
                             <i class="fas fa-tachometer-alt mr-3"></i>
                             Dashboard
                         </a>
                     </li>
                     <li>
-                        <a href="apartments.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/apartments.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-building mr-3"></i>
                             Apartments
                         </a>
                     </li>
                     <li>
-                        <a href="bookings.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/bookings.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-calendar-check mr-3"></i>
                             Bookings
                         </a>
                     </li>
                     <li>
-                        <a href="users.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/users.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-users mr-3"></i>
                             Users
                         </a>
                     </li>
                     <li>
-                        <a href="contacts.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/contacts.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-envelope mr-3"></i>
                             Contacts
                         </a>
                     </li>
                     <li>
-                        <a href="reviews.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/reviews.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-star mr-3"></i>
                             Reviews
                         </a>
                     </li>
                     <li>
-                        <a href="slider.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
+                        <a href="/slider.html" class="flex items-center p-3 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white">
                             <i class="fas fa-images mr-3"></i>
                             Slider
                         </a>
@@ -154,10 +154,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             const currentAdmin = JSON.parse(localStorage.getItem('currentAdmin'));
             if (!currentAdmin || currentAdmin.role !== 'admin') {
-                window.location.href = '../login.html';
+                window.location.href = '/login.html';
             }
         });
     </script>
-    <script src="./src/jsfolder/admin.js"></script>
+    <script src="/src/jsfolder/admin.js"></script>
+    <script type="module" src="/src/jsfolder/login.js"></script>
 </body>
 </html>

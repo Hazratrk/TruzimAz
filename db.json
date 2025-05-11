@@ -390,6 +390,14 @@
       "endDate": "2223-02-22",
       "apartmentId": "2",
       "totalPrice": 120450
+    },
+    {
+      "id": "319d",
+      "name": ";",
+      "startDate": "9999-09-09",
+      "endDate": "9999-09-09",
+      "apartmentId": "2",
+      "totalPrice": 0
     }
   ],
   "contact": [
@@ -650,6 +658,16 @@
       "password": "aa",
       "role": "admin",
       "createdAt": "2025-05-11T13:43:22.177Z"
+    },
+    {
+      "id": "69c2",
+      "fullname": "aaa",
+      "username": "aaa",
+      "email": "aaa@gmail.com",
+      "password": "aaa",
+      "role": "user",
+      "createdAt": "2025-05-11T19:16:11.842Z",
+      "balance": 102233
     }
   ]
 }
