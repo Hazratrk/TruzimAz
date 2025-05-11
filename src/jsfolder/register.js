@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       userTypeAdmin.classList.add('bg-gray-200', 'hover:bg-gray-300');
       userTypeAdmin.classList.remove('bg-blue-600', 'text-white');
       adminFields.classList.add('hidden');
-      document.querySelector('h2').textContent = 'Yeni İstifadəçi Qeydiyyatı';
+      document.querySelector('h2').textContent = 'New user Register';
   });
 
   userTypeAdmin.addEventListener('click', function(e) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
       userTypeUser.classList.add('bg-gray-200', 'hover:bg-gray-300');
       userTypeUser.classList.remove('bg-blue-600', 'text-white');
       adminFields.classList.remove('hidden');
-      document.querySelector('h2').textContent = 'Yeni Admin Qeydiyyatı';
+      document.querySelector('h2').textContent = 'New admin Register';
   });
 
   registerForm.addEventListener('submit', async function(e) {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (!registerResponse.ok) throw new Error('Registration failed');
 
-          // Uğurlu qeydiyyat mesajı
+          //suc login
           showSuccess(userData.isAdmin ? 
               'admin registration successful! You are redirected to the admin panel...' : 
               'Registration successful! You are being redirected to the login page...');
@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
   }
 });
-// Qeydiyyat zamanı admin üçün
+// login for admin
 const newUser = {
-    // ... digər məlumatlar
+    
     role: isAdmin ? 'admin' : 'user'
 };
