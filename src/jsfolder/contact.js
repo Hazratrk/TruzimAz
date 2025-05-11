@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('successMessage');
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
 
-    // Əgər istifadəçi daxil olubsa, forma məlumatlarını avtomatik doldur
+   
     if (user) {
         document.getElementById('name').value = `${user.fullname || ''} ${user.lastname || ''}`.trim();
         document.getElementById('email').value = user.email || '';
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Form məlumatlarını topla
+        // Form 
         const formData = {
             name: document.getElementById('name').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             createdAt: new Date().toISOString()
         };
 
-        // API-ə göndər
+        // API-
         fetch('http://localhost:8000/contact', {
             method: 'POST',
             headers: {
@@ -37,18 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            // Uğur mesajını göstər
+        
             successMessage.classList.remove('hidden');
             contactForm.reset();
             
-            // 5 saniyədən sonra mesajı gizlət
+          
             setTimeout(() => {
                 successMessage.classList.add('hidden');
             }, 5000);
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Xəta baş verdi: ' + error.message);
+            alert('An error occurred.: ' + error.message);
         });
     });
 });

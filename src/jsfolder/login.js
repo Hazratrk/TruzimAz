@@ -1,48 +1,92 @@
-document.getElementById('loginForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const userLoginBtn = document.getElementById('userLoginBtn');
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const loginTypeInput = document.getElementById('loginType');
+    const loginTitle = document.querySelector('h2');
 
-  const emailInput = document.getElementById('email').value.trim();
-  const passwordInput = document.getElementById('password').value.trim();
-  const errorMsg = document.getElementById('errorMsg');
+    
+    userLoginBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginTypeInput.value = 'user';
+        userLoginBtn.classList.add('bg-blue-600', 'text-white');
+        userLoginBtn.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+        adminLoginBtn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+        adminLoginBtn.classList.remove('bg-blue-600', 'text-white');
+        loginTitle.textContent = 'User Login';
+    });
 
-  // Validasiya
-  if (!emailInput || !passwordInput) {
-      errorMsg.textContent = "Fill all spaces!";
-      return;
-  }
+    adminLoginBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginTypeInput.value = 'admin';
+        adminLoginBtn.classList.add('bg-blue-600', 'text-white');
+        adminLoginBtn.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+        userLoginBtn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+        userLoginBtn.classList.remove('bg-blue-600', 'text-white');
+        loginTitle.textContent = 'Admin Login';
+    });
 
-  try {
-      // API-dan istifadəçiləri al
-      const response = await fetch('http://localhost:8000/users');
-      if (!response.ok) throw new Error('API not working');
-      
-      const users = await response.json();
+    loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        errorMsg.textContent = '';
 
-      // İstifadəçini tap
-      const user = users.find(u => 
-          (u.email === emailInput || u.username === emailInput) && 
-          u.password === passwordInput
-      );
+        const emailOrUsername = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const isAdminLogin = loginTypeInput.value === 'admin';
 
-      if (user) {
-          // LocalStorage-a istifadəçi məlumatlarını saxla
-          localStorage.setItem('loggedInUser', JSON.stringify({
-              id: user.id,
-              username: user.username,
-              email: user.email,
-              fullname: user.fullname,
-              lastname: user.lastname,
-              balance: user.balance || 0,
-              registeredAt: user.createdAt || new Date().toISOString()
-          }));
+
+        if (!emailOrUsername || !password) {
+            errorMsg.textContent = "Bütün xanaları doldurun!";
+            return;
+        }
+
+        try {
           
-          // Profil
-          window.location.href = '/profile.html';
-      } else {
-          errorMsg.textContent = 'wrong email/username or password!';
-      }
-  } catch (error) {
-      console.error('Login error:', error);
-      errorMsg.textContent = 'An error occurred,try again.';
-  }
+            const response = await fetch('http://localhost:8000/users');
+            if (!response.ok) throw new Error('API işləmir');
+            
+            const users = await response.json();
+
+            // İstifadəçini tap
+            const user = users.find(u => 
+                (u.email === emailOrUsername || u.username === emailOrUsername) && 
+                u.password === password
+            );
+
+            if (!user) {
+                errorMsg.textContent = 'Incorrect email/username or password!';
+                return;
+            }
+
+            // Admin login
+            if (isAdminLogin && user.role !== 'admin') {
+'Only admins can access here!';
+                return;
+            }
+
+
+            const userData = {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                fullname: user.fullname,
+                role: user.role || 'user',
+                registeredAt: user.createdAt || new Date().toISOString()
+            };
+
+            localStorage.setItem('loggedInUser', JSON.stringify(userData));
+            
+
+            if (user.role === 'admin') {
+                localStorage.setItem('currentAdmin', JSON.stringify(userData));
+                window.location.href = 'admin/dashboard.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+        } catch (error) {
+            console.error('Login Error:', error);
+            errorMsg.textContent = 'An error occurred, please try again.';
+        }
+    });
 });
