@@ -1,13 +1,56 @@
-document.addEventListener('DOMContentLoaded', async function() {
-   
-    document.getElementById('logoutBtn').addEventListener('click', function() {
-        localStorage.removeItem('currentAdmin');
-        window.location.href = '../login.html';
+document.addEventListener('DOMContentLoaded', function () {
+  
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const page = this.getAttribute('href').replace('.html', '');
+            loadPage(page);
+            history.pushState(null, '', `${page}.html`);
+        });
     });
 
-lə
+    // Popstate üçün (geri düyməsi)
+    window.addEventListener('popstate', () => {
+        const page = location.pathname.split('/').pop().replace('.html', '');
+        loadPage(page);
+    });
+
+    // İlk açılışda səhifəni yüklə
+    const initialPage = location.pathname.split('/').pop().replace('.html', 'dashboard') || 'dashboard';
+    loadPage(initialPage);
+});
+
+// Dinamik səhifə yükləyici
+async function loadPage(page) {
     try {
-       
+        const response = await fetch(`./${page}.html`);
+        const html = await response.text();
+
+        const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+        document.querySelector('main').innerHTML = parsedHTML.querySelector('main').innerHTML;
+
+        document.querySelectorAll('nav a').forEach(a => {
+            a.classList.toggle('bg-gray-700', a.getAttribute('href') === `${page}.html`);
+            a.classList.toggle('text-white', a.getAttribute('href') === `${page}.html`);
+            a.classList.toggle('text-gray-300', a.getAttribute('href') !== `${page}.html`);
+        });
+
+        document.querySelector('header h2').textContent =
+            page.charAt(0).toUpperCase() + page.slice(1);
+
+        // Səhifəyə uyğun əlavə kodlar
+        if (page === 'dashboard') {
+            initDashboard(); // dashboard üçün kodu burdan çağır
+        }
+
+    } catch (err) {
+        console.error('Səhifə yüklənərkən xəta:', err);
+    }
+}
+
+// Dashboard üçün funksiyanı ayrıca yaz
+async function initDashboard() {
+    try {
         const [usersRes, bookingsRes, reviewsRes] = await Promise.all([
             fetch('http://localhost:8000/users'),
             fetch('http://localhost:8000/bookings'),
@@ -22,7 +65,6 @@ lə
         const bookings = await bookingsRes.json();
         const reviews = await reviewsRes.json();
 
-       
         document.getElementById('totalUsers').textContent = users.length;
         document.getElementById('activeBookings').textContent = bookings.filter(b => b.status === 'active').length;
         document.getElementById('newReviews').textContent = reviews.filter(r => !r.approved).length;
@@ -57,7 +99,6 @@ lə
             activitiesTable.appendChild(row);
         });
 
-    
         const recentBookings = bookings.slice(-5).reverse();
         const bookingsTable = document.getElementById('recentBookings');
         recentBookings.forEach(booking => {
@@ -66,7 +107,7 @@ lə
                 'pending': 'bg-yellow-100 text-yellow-800',
                 'cancelled': 'bg-red-100 text-red-800'
             }[booking.status];
-            
+
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">B#${booking.id}</td>
@@ -86,50 +127,4 @@ lə
         console.error('Dashboard error:', error);
         alert('An error occurred while loading dashboard data.');
     }
-});
-
-// src/jsfolder/admin.js faylına əlavə edin
-document.addEventListener('DOMContentLoaded', function() {
-    // Naviqasiya linklərinə hadisə əlavə et
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const page = this.getAttribute('href').replace('.html', '');
-        loadPage(page);
-        history.pushState(null, '', `${page}.html`);
-      });
-    });
-  
-    // Səhifə yükləmə funksiyası
-    async function loadPage(page) {
-      try {
-        const response = await fetch(`./${page}.html`);
-        const html = await response.text();
-        
-        // Əsas məzmunu dəyiş
-        document.querySelector('main').innerHTML = 
-          new DOMParser().parseFromString(html, 'text/html')
-            .querySelector('main').innerHTML;
-        
-        // Aktiv linki güncəllə
-        document.querySelectorAll('nav a').forEach(a => {
-          a.classList.toggle('bg-gray-700', a.getAttribute('href') === `${page}.html`);
-          a.classList.toggle('text-white', a.getAttribute('href') === `${page}.html`);
-          a.classList.toggle('text-gray-300', a.getAttribute('href') !== `${page}.html`);
-        });
-        
-        // Başlığı dəyiş
-        document.querySelector('header h2').textContent = 
-          page.charAt(0).toUpperCase() + page.slice(1);
-        
-      } catch (err) {
-        console.error('Səhifə yüklənərkən xəta:', err);
-      }
-    }
-  
-    // Browser geri/irəli düymələri üçün
-    window.addEventListener('popstate', () => {
-      const page = location.pathname.split('/').pop().replace('.html', '');
-      loadPage(page);
-    });
-  });
+}
