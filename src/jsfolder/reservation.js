@@ -55,7 +55,7 @@ function calculatePrice(apartment) {
   }
 }
 
-//  render 
+
 function renderReservationPage(apartment) {
   const container = document.getElementById("reservation-container");
   
