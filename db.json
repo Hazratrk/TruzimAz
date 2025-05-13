@@ -32,21 +32,6 @@
       "message": "hello how are you"
     },
     {
-      "id": "3",
-      "title": "4-Room Apartment",
-      "location": "Baku, 6-mkr",
-      "nightPrice": 320,
-      "image": "https://casco-media-prod.global.ssl.fastly.net/5e28e409-200f-5f53-a35b-ccb1b1427821/cee88f69787db3d17ef1d8ad36264e06.jpg?width=600&auto=webp",
-      "features": [
-        "Large garden",
-        "Swimming pool",
-        "Spacious villa",
-        "Secure"
-      ],
-      "description": "A large and spacious 4-room villa located on the outskirts of Baku. Includes a pool and garden.",
-      "rules": "Cleaning service is provided every 3 days."
-    },
-    {
       "id": "4",
       "title": "3-Room Apartment",
       "location": "Baku, Azadliq",
@@ -167,19 +152,12 @@
       "rules": "Cleaning service is provided every 3 days."
     },
     {
-      "id": "12",
       "title": "3-Room Frame",
       "location": "Baku, Khazar",
-      "nightPrice": 140,
+      "nightPrice": 1400,
       "image": "https://grkids.com/wp-content/uploads/2021/01/Empire-pool-house-rental.jpg",
-      "features": [
-        "Large garden",
-        "Swimming pool",
-        "Spacious villa",
-        "Secure"
-      ],
       "description": "A large and spacious 4-room villa located on the outskirts of Baku. Includes a pool and garden.",
-      "rules": "Cleaning service is provided every 3 days."
+      "id": "12"
     },
     {
       "id": "13",
@@ -187,21 +165,6 @@
       "location": "Baku, Khazar",
       "nightPrice": 250,
       "image": "https://apartmentlove.com/blogPhotos/1629700925/Garage%20Apartments%20for%20Rent%20in%20Houston,%20Texas.jpg",
-      "features": [
-        "Large garden",
-        "Swimming pool",
-        "Spacious villa",
-        "Secure"
-      ],
-      "description": "A large and spacious 4-room villa located on the outskirts of Baku. Includes a pool and garden.",
-      "rules": "Cleaning service is provided every 3 days."
-    },
-    {
-      "id": "14",
-      "title": "4-Room Frame",
-      "location": "Baku, Khazar",
-      "nightPrice": 250,
-      "image": "https://images1.forrent.com/i2/M6k1fhDeEaHCRFwZixHsDvLb-wqxTqtYxQKQ3DALv_s/117/image.jpg?p=1",
       "features": [
         "Large garden",
         "Swimming pool",
@@ -312,14 +275,14 @@
       "name": "555hkr",
       "startDate": "2222-02-22",
       "endDate": "2222-02-22",
-      "apartmentId": "3"
+      "apartmentId": null
     },
     {
       "id": "1843",
       "name": "resad olmasin",
       "startDate": "22222-02-22",
       "endDate": "2222-02-22",
-      "apartmentId": "3"
+      "apartmentId": null
     },
     {
       "id": "1d30",
@@ -348,7 +311,7 @@
       "name": "salam2007",
       "startDate": "2024-04-24",
       "endDate": "2025-05-24",
-      "apartmentId": "14",
+      "apartmentId": null,
       "totalPrice": 98750
     },
     {
@@ -356,7 +319,7 @@
       "name": "hovuz aciq olsun",
       "startDate": "2007-04-24",
       "endDate": "2009-04-24",
-      "apartmentId": "14",
+      "apartmentId": null,
       "totalPrice": 182750
     },
     {
@@ -380,7 +343,7 @@
       "name": "sdf",
       "startDate": "222222-02-22",
       "endDate": "222222-02-22",
-      "apartmentId": "3",
+      "apartmentId": null,
       "totalPrice": 0
     },
     {

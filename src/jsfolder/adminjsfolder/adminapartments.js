@@ -1,193 +1,107 @@
-let currentEditingId = null;
+const form = document.getElementById("addApartmentForm");
+const apartmentsContainer = document.getElementById("apartmentsContainer");
 
-// DOM Elements
-const apartmentsTable = document.getElementById('apartmentsTable');
-const addApartmentBtn = document.getElementById('addApartmentBtn');
-const apartmentForm = document.getElementById('apartmentForm');
-const apartmentModal = document.getElementById('apartmentModal');
-const modalTitle = document.getElementById('modalTitle');
+const API_URL = "http://localhost:8000/apartments";
+let editingId = null;
 
+// Mənzili kart kimi göstərmək
+function renderApartment(apartment) {
+  const card = document.createElement("div");
+  card.className = "bg-white border rounded-xl shadow-md overflow-hidden";
+  card.innerHTML = `
+    <img src="${apartment.image}" alt="${apartment.title}" class="w-full h-48 object-cover">
+    <div class="p-4">
+      <h3 class="text-lg font-semibold">${apartment.title}</h3>
+      <p class="text-sm text-gray-600">${apartment.location}</p>
+      <p class="text-teal-600 font-bold">₼${apartment.nightPrice}</p>
+      <p class="text-sm mt-2">${apartment.description}</p>
+      <div class="mt-4 flex space-x-3">
+        <button class="text-blue-600 hover:underline edit-btn" data-id="${apartment.id}">Düzəlt</button>
+        <button class="text-red-600 hover:underline delete-btn" data-id="${apartment.id}">Sil</button>
+      </div>
+    </div>
+  `;
+  apartmentsContainer.appendChild(card);
+}
 
-const formFields = {
-  id: document.getElementById('apartmentId'),
-  title: document.getElementById('title'),
-  location: document.getElementById('location'),
-  nightPrice: document.getElementById('nightPrice'),
-  image: document.getElementById('image'),
-  features: document.getElementById('features'),
-  description: document.getElementById('description'),
-  rules: document.getElementById('rules'),
-  messages: document.getElementById('messages')
-};
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  addApartmentBtn.addEventListener('click', openAddApartmentModal);
-  apartmentForm.addEventListener('submit', saveApartment);
-  loadApartments();
-});
-
-// Load apartments from API
+// Bütün mənzilləri yüklə
 async function loadApartments() {
+  apartmentsContainer.innerHTML = "";
   try {
-    const response = await fetch('http://localhost:8000/apartments');
-    if (!response.ok) throw new Error('Network response was not ok');
-    
-    const apartments = await response.json();
-    renderApartmentsTable(apartments);
+    const res = await fetch(API_URL);
+    const apartments = await res.json();
+    apartments.forEach(renderApartment);
   } catch (error) {
-    console.error('Error loading apartments:', error);
-    alert('Mənzillər yüklənərkən xəta baş verdi');
+    console.error("Mənzillər yüklənmədi:", error);
   }
 }
 
-// Render apartments table
-function renderApartmentsTable(apartments) {
-  apartmentsTable.innerHTML = apartments.map(apartment => `
-    <tr class="hover:bg-gray-50 transition">
-      <td class="px-6 py-4">
-        <img src="${apartment.image}" class="w-16 h-16 object-cover rounded" alt="${apartment.title}">
-      </td>
-      <td class="px-6 py-4 font-medium">${apartment.title}</td>
-      <td class="px-6 py-4">${apartment.location}</td>
-      <td class="px-6 py-4 font-semibold">${apartment.nightPrice} ₼</td>
-      <td class="px-6 py-4">
-        <button onclick="editApartment('${apartment.id}')" 
-                class="text-blue-600 hover:text-blue-800 mr-3 px-3 py-1 rounded hover:bg-blue-50 transition">
-          <i class="fas fa-edit mr-1"></i>Düzəlt
-        </button>
-        <button onclick="deleteApartment('${apartment.id}')" 
-                class="text-red-600 hover:text-red-800 px-3 py-1 rounded hover:bg-red-50 transition">
-          <i class="fas fa-trash mr-1"></i>Sil
-        </button>
-      </td>
-    </tr>
-  `).join('');
-}
+// Form submit — əlavə və ya düzəliş
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-// Open modal for adding new apartment
-function openAddApartmentModal() {
-  currentEditingId = null;
-  modalTitle.textContent = 'Yeni Mənzil Əlavə Et';
-  resetForm();
-  apartmentModal.classList.remove('hidden');
-  apartmentModal.classList.add('flex');
-}
-
-// Edit apartment
-async function editApartment(id) {
-  try {
-    const response = await fetch(`http://localhost:8000/apartments/${id}`);
-    if (!response.ok) throw new Error('Network response was not ok');
-    
-    const apartment = await response.json();
-    
-    currentEditingId = id;
-    modalTitle.textContent = 'Mənzili Düzəlt';
-    
-    // Fill form fields
-    formFields.id.value = id;
-    formFields.title.value = apartment.title;
-    formFields.location.value = apartment.location;
-    formFields.nightPrice.value = apartment.nightPrice;
-    formFields.image.value = apartment.image;
-    formFields.features.value = apartment.features?.join(', ') || '';
-    formFields.description.value = apartment.description;
-    formFields.rules.value = apartment.rules || '';
-    formFields.messages.value = apartment.messages || '';
-    
-    apartmentModal.classList.remove('hidden');
-    apartmentModal.classList.add('flex');
-  } catch (error) {
-    console.error('Error editing apartment:', error);
-    alert('Mənzil məlumatları yüklənərkən xəta baş verdi');
-  }
-}
-
-// Save apartment (create or update)
-async function saveApartment(event) {
-  event.preventDefault();
-  
-  const apartmentData = {
-    title: formFields.title.value.trim(),
-    location: formFields.location.value.trim(),
-    nightPrice: parseFloat(formFields.nightPrice.value),
-    image: formFields.image.value.trim(),
-    features: formFields.features.value.split(',').map(item => item.trim()).filter(item => item),
-    description: formFields.description.value.trim(),
-    rules: formFields.rules.value.trim(),
-    messages: formFields.messages.value.trim()
+  const newApartment = {
+    title: document.getElementById("apartmentTitle").value,
+    location: document.getElementById("apartmentLocation").value,
+    nightPrice: +document.getElementById("apartmentPrice").value,
+    image: document.getElementById("apartmentImage").value,
+    description: document.getElementById("apartmentDescription").value,
   };
 
-  // Validate required fields
-  if (!apartmentData.title || !apartmentData.location || !apartmentData.nightPrice || !apartmentData.image) {
-    alert('Zəhmət olmasa bütün tələb olunan sahələri doldurun!');
-    return;
-  }
-
   try {
-    const url = currentEditingId 
-      ? `http://localhost:8000/apartments/${currentEditingId}`
-      : 'http://localhost:8000/apartments';
-      
-    const method = currentEditingId ? 'PUT' : 'POST';
-    
-    const response = await fetch(url, {
-      method: method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apartmentData)
-    });
-    
-    if (!response.ok) throw new Error('Network response was not ok');
-    
-    const result = await response.json();
-    console.log('API Response:', result);
-    
-    closeModal();
+    if (editingId) {
+      await fetch(`${API_URL}/${editingId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newApartment),
+      });
+      editingId = null;
+    } else {
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newApartment),
+      });
+    }
+
+    form.reset();
     loadApartments();
-    
-    alert(`Mənzil ${currentEditingId ? 'yeniləndi' : 'əlavə edildi'}!`);
   } catch (error) {
-    console.error('Error saving apartment:', error);
-    alert('Mənzil yadda saxlanarkən xəta baş verdi: ' + error.message);
+    console.error("Əlavə/Düzəltmə xətası:", error);
   }
-}
+});
 
-// Delete apartment
-async function deleteApartment(id) {
-  if (!confirm('Bu mənzili silmək istədiyinizə əminsiniz? Bu əməliyyat geri qaytarıla bilməz!')) return;
-  
-  try {
-    const response = await fetch(`http://localhost:8000/apartments/${id}`, {
-      method: 'DELETE'
-    });
-    
-    if (!response.ok) throw new Error('Network response was not ok');
-    
-    loadApartments();
-    alert('Mənzil uğurla silindi!');
-  } catch (error) {
-    console.error('Error deleting apartment:', error);
-    alert('Mənzil silinərkən xəta baş verdi: ' + error.message);
+
+apartmentsContainer.addEventListener("click", async (e) => {
+  const id = e.target.dataset.id;
+
+
+  if (e.target.classList.contains("delete-btn")) {
+    if (confirm("Bu mənzili silmək istədiyinizə əminsiniz?")) {
+      await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      loadApartments();
+    }
   }
-}
 
-// Reset form
-function resetForm() {
-  apartmentForm.reset();
-  formFields.id.value = '';
-}
+  // Redaktə etmək
+  if (e.target.classList.contains("edit-btn")) {
+    try {
+      const res = await fetch(`${API_URL}/${id}`);
+      const apartment = await res.json();
 
-// Close modal
-function closeModal() {
-  apartmentModal.classList.add('hidden');
-  apartmentModal.classList.remove('flex');
-  resetForm();
-}
+      document.getElementById("apartmentTitle").value = apartment.title;
+      document.getElementById("apartmentLocation").value = apartment.location;
+      document.getElementById("apartmentPrice").value = apartment.nightPrice;
+      document.getElementById("apartmentImage").value = apartment.image;
+      document.getElementById("apartmentDescription").value = apartment.description;
 
-// Close modal when clicking outside
-window.onclick = function(event) {
-  if (event.target === apartmentModal) {
-    closeModal();
+      editingId = id;
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Formu göstərin
+    } catch (error) {
+      console.error("Redaktə xətası:", error);
+    }
   }
-};
+});
+
+// İlk yüklənmə
+loadApartments();
