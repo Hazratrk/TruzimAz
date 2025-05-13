@@ -70,7 +70,7 @@ function renderReservationPage(apartment) {
       <p class="mb-4 text-blue-400 font-bold">Price for 1 night: ${apartment.nightPrice} AZN</p>
 
       <form id="reservation-form" class="space-y-4">
-        <input type="text" id="name" placeholder="Extra Comment" class="w-full text-blue-600 border p-2 rounded" required />
+        <input type="text" id="name" placeholder="Name" class="w-full text-blue-600 border p-2 rounded" required />
         <input type="date" id="startDate" class="w-full border text-blue-600 p-2 rounded" required />
         <input type="date" id="endDate" class="w-full border p-2 text-blue-600 rounded" required />
         <button type="submit" class="bg-blue-700 hover:bg-blue-800  text-blue-600 text-white px-6 py-2 rounded">

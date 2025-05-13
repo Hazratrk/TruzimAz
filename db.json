@@ -361,6 +361,14 @@
       "endDate": "9999-09-09",
       "apartmentId": "2",
       "totalPrice": 0
+    },
+    {
+      "id": "2b2c",
+      "name": "Krm",
+      "startDate": "2025-05-13",
+      "endDate": "2025-06-14",
+      "apartmentId": "10",
+      "totalPrice": 8000
     }
   ],
   "contact": [
@@ -641,7 +649,33 @@
       "role": "user",
       "createdAt": "2025-05-11T19:16:11.842Z",
       "balance": 102233
+    },
+    {
+      "id": "3202",
+      "fullname": "Hazrat Karimov",
+      "username": "Hzrt",
+      "email": "hzrt123@xn--gmaailcom-52b",
+      "password": "123",
+      "role": "user",
+      "createdAt": "2025-05-13T17:53:48.419Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "apartmentId": 1,
+      "totalPrice": 150,
+      "status": "active"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "userId": 1,
+      "apartmentId": 1,
+      "comment": "Çox gözəl mənzil idi!",
+      "rating": 5
     }
   ]
 }
-
