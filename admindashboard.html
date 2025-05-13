@@ -133,12 +133,13 @@
     </div>
   </div>
 
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // Sadəcə ad yazmaq üçün statik "Admin"
       document.getElementById('adminName').textContent = 'Admin';
 
-      // Logout sadəcə yenidən yönləndirir
+  //logout
       document.getElementById('logoutBtn').addEventListener('click', function () {
         window.location.href = '/login.html';
       });
@@ -197,6 +198,7 @@
       `).join('');
     }
   </script>
-  <script type="module" src="./src/jsfolder/adminjsfolder/admin.js"></script>
+<script type="module" src="/src/jsfolder/adminjsfolder/admindashboard.js"></script>
+
 </body>
 </html>
