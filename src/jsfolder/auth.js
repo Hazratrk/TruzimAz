@@ -45,3 +45,17 @@ function checkAuthStatus() {
         }
     }
 }
+
+// auth.js faylına əlavə edin
+function setCurrentUser(user) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+  }
+  
+  function getCurrentUser() {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user) : null;
+  }
+  
+  function clearCurrentUser() {
+    localStorage.removeItem('currentUser');
+  }

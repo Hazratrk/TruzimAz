@@ -1,158 +1,170 @@
-document.addEventListener('DOMContentLoaded', async function() {
-    const usersTable = document.getElementById('usersTable');
-    const searchInput = document.getElementById('searchUsers');
-    const reviewsContainer = document.getElementById('adminReviewsContainer');
-
-    async function loadUsers(searchTerm = '') {
-        try {
-            const response = await fetch('http://localhost:8000/users');
-            if (!response.ok) throw new Error('API error');
-            const users = await response.json();
-
-            const filteredUsers = users.filter(user => 
-                user.username.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                user.email.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-
-            usersTable.innerHTML = '';
-            filteredUsers.forEach(user => {
-                const row = document.createElement('tr');
-                const statusClass = user.banned ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800';
-                const statusText = user.banned ? 'Banlı' : 'Aktiv';
-
-                row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.id}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${user.username}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.email}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${new Date(user.createdAt).toLocaleDateString()}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">
-                            ${statusText}
-                        </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button class="text-blue-600 hover:text-blue-900 mr-3 edit-btn" data-id="${user.id}">Edit</button>
-                        <button class="${user.banned ? 'text-green-600 hover:text-green-900' : 'text-yellow-600 hover:text-yellow-900'} mr-3 ban-btn" data-id="${user.id}">
-                            ${user.banned ? 'Unban' : 'Ban'}
-                        </button>
-                        <button class="text-red-600 hover:text-red-900 delete-btn" data-id="${user.id}">Delete</button>
-                    </td>
-                `;
-                usersTable.appendChild(row);
-            });
-
-            document.querySelectorAll('.ban-btn').forEach(btn => {
-                btn.addEventListener('click', async function() {
-                    const userId = this.getAttribute('data-id');
-                    await toggleBanUser(userId);
-                    await loadUsers(searchInput.value);
-                });
-            });
-
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const userId = this.getAttribute('data-id');
-                    deleteUser(userId);
-                });
-            });
-
-        } catch (error) {
-            console.error('Users load error:', error);
-            alert('İstifadəçi məlumatları yüklənərkən xəta baş verdi');
-        }
-    }
-
+document.addEventListener("DOMContentLoaded", () => {
+    const reviewsTable = document.getElementById("reviewsTable");
+    const loadingIndicator = document.getElementById("loadingIndicator");
+  
     async function loadReviews() {
-        try {
-            const response = await fetch('http://localhost:8000/reviews');
-            if (!response.ok) throw new Error('Review fetch error');
-            const reviews = await response.json();
-
-            reviewsContainer.innerHTML = reviews.map(review => `
-                <div class="border p-4 rounded-md mb-3 bg-white shadow">
-                    <div class="flex justify-between">
-                        <div>
-                            <p class="font-semibold text-gray-800">${review.username}</p>
-                            <p class="text-sm text-gray-500">${review.apartmentTitle}</p>
-                            <p class="mt-1 text-gray-600">${review.text}</p>
-                        </div>
-                        <button class="text-red-500 hover:text-red-700" onclick="deleteReview('${review.id}')">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-
-        } catch (err) {
-            console.error('Review load error:', err);
-            reviewsContainer.innerHTML = '<p class="text-red-500">Rəylər yüklənə bilmədi.</p>';
+      try {
+        showLoading(true);
+  
+        const [reviewsRes, apartmentsRes] = await Promise.all([
+          fetch("http://localhost:8000/reviews"),
+          fetch("http://localhost:8000/apartments")
+        ]);
+  
+        if (!reviewsRes.ok || !apartmentsRes.ok) {
+          throw new Error('Verilənlər alınarkən xəta baş verdi');
         }
+  
+        const reviews = await reviewsRes.json();
+        const apartments = await apartmentsRes.json();
+  
+        // Mənzil adlarını əldə etmək üçün mapping
+        const apartmentMap = {};
+        apartments.forEach(apt => {
+          apartmentMap[apt.id] = apt.title;
+        });
+  
+        renderReviews(reviews, apartmentMap);
+      } catch (error) {
+        console.error("Xəta:", error);
+        showError("Rəylər yüklənərkən xəta baş verdi");
+      } finally {
+        showLoading(false);
+      }
     }
-
-    async function toggleBanUser(userId) {
-        try {
-            const response = await fetch(`http://localhost:8000/users/${userId}`);
-            if (!response.ok) throw new Error('API error');
-            const user = await response.json();
-
-            const updatedUser = { ...user, banned: !user.banned };
-
-            const updateResponse = await fetch(`http://localhost:8000/users/${userId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(updatedUser)
-            });
-
-            if (!updateResponse.ok) throw new Error('Update failed');
-
-        } catch (error) {
-            console.error('Toggle ban error:', error);
-            alert('İstifadəçi statusu dəyişdirilərkən xəta baş verdi');
-        }
+  
+    function renderReviews(reviews, apartmentMap) {
+      reviewsTable.innerHTML = '';
+  
+      if (reviews.length === 0) {
+        reviewsTable.innerHTML = `
+          <tr>
+            <td colspan="6" class="px-6 py-4 text-center text-gray-500">
+              Heç bir rəy tapılmadı
+            </td>
+          </tr>
+        `;
+        return;
+      }
+  
+      reviews.forEach(review => {
+        const row = document.createElement("tr");
+        row.className = "hover:bg-gray-50";
+        row.innerHTML = `
+          <td class="px-6 text-blue-600 py-4 whitespace-nowrap">${review.id}</td>
+          <td class="px-6 text-blue-600 py-4 whitespace-nowrap">
+            ${apartmentMap[review.apartmentId] || 'Mənzil silinib'}
+          </td>
+          <td class="px-6 text-blue-600 py-4 whitespace-nowrap">
+            ${review.author || 'Anonim istifadəçi'}
+          </td>
+          <td class="px-6 text-blue-600 py-4 max-w-xs truncate" title="${review.content}">
+            ${review.content}
+          </td>
+          <td class="px-6 text-blue-600 py-4 whitespace-nowrap">
+            ${new Date(review.createdAt).toLocaleDateString()}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <button data-id="${review.id}" 
+              class="delete-review-btn px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">
+              Sil
+            </button>
+          </td>
+        `;
+        reviewsTable.appendChild(row);
+      });
     }
-
-    async function deleteUser(userId) {
-        if (!confirm('Bu istifadəçini silmək istədiyinizə əminsiniz?')) return;
-
-        try {
-            const response = await fetch(`http://localhost:8000/users/${userId}`, {
-                method: 'DELETE'
-            });
-
-            if (!response.ok) throw new Error('Delete failed');
-
-            await loadUsers(searchInput.value);
-            alert('İstifadəçi uğurla silindi');
-
-        } catch (error) {
-            console.error('Delete user error:', error);
-            alert('İstifadəçi silinərkən xəta baş verdi');
-        }
-    }
-
-    window.deleteReview = async function(id) {
-        if (!confirm('Bu rəyi silmək istədiyinizə əminsiniz?')) return;
-
-        try {
-            const res = await fetch(`http://localhost:8000/reviews/${id}`, {
-                method: 'DELETE'
-            });
-
-            if (!res.ok) throw new Error('Review delete failed');
-
-            await loadReviews();
-        } catch (err) {
-            console.error('Review delete error:', err);
-            alert('Rəy silinərkən xəta baş verdi');
-        }
-    };
-
-    searchInput.addEventListener('input', function() {
-        loadUsers(this.value);
+  
+    // Sil düyməsi üçün event delegation
+    reviewsTable.addEventListener("click", async (e) => {
+      if (e.target.classList.contains("delete-review-btn")) {
+        const id = e.target.getAttribute("data-id");
+        await deleteReview(id);
+      }
     });
-
-    await loadUsers();
-    await loadReviews();
-});
+  
+    async function deleteReview(id) {
+      try {
+        const review = await fetchReview(id);
+  
+        const isConfirmed = confirm(
+          `"${review.content.substring(0, 30)}..." rəyini silmək istədiyinizə əminsiniz?\n\n` +
+          `Yazan: ${review.author || 'Anonim'}\n` +
+          `Tarix: ${new Date(review.createdAt).toLocaleDateString()}`
+        );
+  
+        if (!isConfirmed) return;
+  
+        showLoading(true);
+        const response = await fetch(`http://localhost:8000/reviews/${id}`, {
+          method: "DELETE"
+        });
+  
+        if (!response.ok) throw new Error('Silinmə zamanı xəta baş verdi');
+  
+        loadReviews(); // Siyahını yenilə
+        showSuccess("Rəy uğurla silindi");
+      } catch (error) {
+        console.error("Xəta:", error);
+        showError("Rəy silinərkən xəta baş verdi: " + error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+  
+    async function fetchReview(id) {
+      const response = await fetch(`http://localhost:8000/reviews/${id}`);
+      if (!response.ok) throw new Error('Rəy tapılmadı');
+      return await response.json();
+    }
+    async function deleteReview(id) {
+        try {
+          const review = await fetchReview(id);
+      
+          // content sahəsinin yoxlanması və mətni olmadan da silmə icazəsi
+          const contentPreview = review.content ? review.content.substring(0, 30) : 'Mətn yoxdur';
+          const author = review.author || 'Anonim';
+          const createdAt = new Date(review.createdAt).toLocaleDateString();
+      
+          const isConfirmed = confirm(
+            `"${contentPreview}..." rəyini silmək istədiyinizə əminsiniz?\n\n` +
+            `Yazan: ${author}\n` +
+            `Tarix: ${createdAt}`
+          );
+      
+          if (!isConfirmed) return;
+      
+          showLoading(true);
+          const response = await fetch(`http://localhost:8000/reviews/${id}`, {
+            method: "DELETE"
+          });
+      
+          if (!response.ok) throw new Error('Silinmə zamanı xəta baş verdi');
+      
+          loadReviews(); // Siyahını yenilə
+          showSuccess("Rəy uğurla silindi");
+        } catch (error) {
+          console.error("Xəta:", error);
+          showError("Rəy silinərkən xəta baş verdi: " + error.message);
+        } finally {
+          showLoading(false);
+        }
+      }
+      
+    // Yardımcı funksiyalar
+    function showLoading(show) {
+      loadingIndicator.style.display = show ? 'block' : 'none';
+    }
+  
+    function showError(message) {
+      alert(`Xəta: ${message}`);
+    }
+  
+    function showSuccess(message) {
+      alert(`Uğurlu: ${message}`);
+    }
+  
+    // Səhifə yüklənəndə rəyləri yüklə
+    loadReviews();
+  });
+  
