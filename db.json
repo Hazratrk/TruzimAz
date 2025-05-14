@@ -393,6 +393,16 @@
       "message": "salam",
       "userId": null,
       "createdAt": "2025-05-14T10:43:03.777Z"
+    },
+    {
+      "id": "89f7",
+      "name": "Adil Rzayev",
+      "email": "hzrt789@gmail.com",
+      "phone": "0504415676",
+      "subject": "question",
+      "message": "is free?",
+      "userId": null,
+      "createdAt": "2025-05-14T22:49:14.256Z"
     }
   ],
   "users": [
@@ -452,6 +462,16 @@
       "password": "123",
       "role": "user",
       "createdAt": "2025-05-13T17:53:48.419Z"
+    },
+    {
+      "id": "c155",
+      "fullname": "Adil Rzayev",
+      "username": "Adil",
+      "email": "adil@gmail.com",
+      "password": "12345",
+      "role": "user",
+      "createdAt": "2025-05-14T22:52:39.209Z",
+      "balance": 12345688
     }
   ],
   "bookings": [
@@ -479,13 +499,5 @@
       "portNumber": "BAK456"
     }
   ],
-  "reviews": [
-    {
-      "id": "2d78",
-      "apartmentId": 10,
-      "name": "hazrat",
-      "text": "your apartments very beatiuful",
-      "createdAt": "2025-05-14T22:15:16.538Z"
-    }
-  ]
+  "reviews": []
 }
