@@ -13,12 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
   <title>Turizimaz</title>
-
-
-
-<style>
+  <style>
     .image-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -27,73 +23,117 @@
     .main-image {
       grid-column: span 2;
     }
+    .review-item {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .review-author {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .review-date {
+      font-size: 0.8rem;
+      color: #7f8c8d;
+    }
+    #review-form {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
   </style>
-  
-  
-  
 </head>
 <body class="bg-gray-50">
-  <!-- Navbar (same as your main page) -->
- 
+  <nav class="bg-white shadow-md p-4 flex justify-between items-center text-blue-700 ">
+    <div class="text-2xl font-bold">Turizimaz</div>
+    <ul class="flex space-x-6 text-gray-700 items-center">
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="index.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="apartments.html" class="flex items-center space-x-2">
+          <i class="fa-regular fa-building"></i>
+          <span>Apartments</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="contact.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-phone"></i>
+          <span>Contact</span>
+        </a>
+      </li>
+      <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+        <a href="about.html" class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <div id="authSection" class="flex items-center space-x-4">
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="login.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-user"></i>
+            <span>Login</span>
+          </a>
+        </li>
+        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
+          <a href="register.html" class="flex items-center space-x-2">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Register</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
 
-
-    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-      <div class="text-2xl font-bold">Turizimaz</div>
-      <ul class="flex space-x-6 text-gray-700 items-center">
-        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-          <a href="index.html" class="flex items-center space-x-2">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-          <a href="apartments.html" class="flex items-center space-x-2">
-            <i class="fa-regular fa-building"></i>
-            <span>Apartments</span>
-          </a>
-        </li>
-        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-          <a href="contact.html" class="flex items-center space-x-2">
-            <i class="fa-solid fa-phone"></i>
-            <span>Contact</span>
-          </a>
-        </li>
-        <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-          <a href="about.html" class="flex items-center space-x-2">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>About</span>
-          </a>
-        </li>
-        <div id="authSection" class="flex items-center space-x-4">
-          <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-            <a href="login.html" class="flex items-center space-x-2">
-              <i class="fa-solid fa-user"></i>
-              <span>Login</span>
-            </a>
-          </li>
-          <li class="flex items-center space-x-2 hover:text-blue-800 cursor-pointer">
-            <a href="register.html" class="flex items-center space-x-2">
-              <i class="fa-solid fa-user-plus"></i>
-              <span>Register</span>
-            </a>
-          </li>
-        </div>
-      </ul>
-    </nav>
   <div class="container mx-auto my-8 px-4">
     <div id="apartment-detail" class="bg-white rounded-lg shadow-lg overflow-hidden">
-      <!-- Apartment details will be dynamically inserted here -->
-   
-      <a href="reservation.html?id=${apt.id}">Reservation</a>
+      <!-- Apartment details will be inserted here by JavaScript -->
+      
+      <div class="p-6 border-t mt-6">
+        <h2 class="text-2xl  text-blue-700 font-bold mb-6">Reviews</h2>
+        <div id="review-list" class="space-y-4 mb-8">
+          <!-- Reviews will be loaded here -->
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl text-blue-600 font-semibold mb-4">Add Your Review</h3>
+          <form id="review-form" class="space-y-4">
+            <div>
+              <label for="review-author" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+              <input type="text" id="review-author" placeholder="Enter your name" required 
+                     class="w-full px-4 py-2 text-blue-700 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="review-text" class="block text-sm font-medium text-gray-700 mb-1">Your Review</label>
+              <textarea id="review-text" rows="4" placeholder="Write your review here..." required
+                        class="w-full px-4 py-2 border text-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit" 
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+              Submit Review
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="p-6 text-center">
+        <a href="reservation.html?id=${apt.id}" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+          Make Reservation
+        </a>
+      </div>
+    </div>
+  </div>
 
-  
-  <!-- Footer (same as your main page) -->
   <footer class="bg-gray-800 text-white py-8 px-4">
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
           <h3 class="text-xl text-blue-500 font-bold">TurizimAz</h3>
-          <p class="text-gray-400 text-blue-500 ">Premium apartment rentals in Baku</p>
+          <p class="text-gray-400 text-blue-500">Premium apartment rentals in Baku</p>
         </div>
         <div class="flex space-x-4">
           <a href="#" class="text-gray-400 hover:text-white transition">
@@ -110,13 +150,13 @@
           </a>
         </div>
       </div>
-      
       <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
         <p>© 2025 TurizimAz. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
   <script src="./src/jsfolder/auth.js"></script>
-<script src="./src/jsfolder/detail.js"></script>
+  <script src="./src/jsfolder/detail.js"></script>
 </body>
 </html>

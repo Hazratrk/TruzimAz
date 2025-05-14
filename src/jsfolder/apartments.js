@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     list.forEach(apartment => {
       apartmentList.innerHTML += `
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden ">
           <img src="${apartment.image}" alt="${apartment.title}" class="w-full h-56 object-cover">
           <div class="p-4">
-            <h3 class="text-xl font-bold">${apartment.title}</h3>
-            <p class="text-gray-600">${apartment.location}</p>
+            <h3 class="text-xl text-blue-700 font-bold">${apartment.title}</h3>
+            <p class="text-blue-700">${apartment.location}</p>
             <p class="text-blue-600 font-semibold mt-2">₼${apartment.nightPrice} / night</p>
-            <a href="detail.html?id=${apartment.id}" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            <a href="detail.html?id=${apartment.id}" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 text-blue-700  rounded hover:bg-blue-700">
               Detail
             </a>
           </div>
@@ -91,3 +91,4 @@ document.getElementById("sort-high-low").addEventListener("click", () => {
 });
 
 fetchApartments();
+
