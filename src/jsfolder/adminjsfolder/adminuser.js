@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function() {
     const usersTable = document.getElementById('usersTable');
     const searchInput = document.getElementById('searchUsers');
-
+    const reviewsContainer = document.getElementById('adminReviewsContainer');
 
     async function loadUsers(searchTerm = '') {
         try {
@@ -9,13 +9,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             if (!response.ok) throw new Error('API error');
             const users = await response.json();
 
-     
             const filteredUsers = users.filter(user => 
                 user.username.toLowerCase().includes(searchTerm.toLowerCase()) || 
                 user.email.toLowerCase().includes(searchTerm.toLowerCase())
             );
 
-        
             usersTable.innerHTML = '';
             filteredUsers.forEach(user => {
                 const row = document.createElement('tr');
@@ -64,6 +62,32 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
+    async function loadReviews() {
+        try {
+            const response = await fetch('http://localhost:8000/reviews');
+            if (!response.ok) throw new Error('Review fetch error');
+            const reviews = await response.json();
+
+            reviewsContainer.innerHTML = reviews.map(review => `
+                <div class="border p-4 rounded-md mb-3 bg-white shadow">
+                    <div class="flex justify-between">
+                        <div>
+                            <p class="font-semibold text-gray-800">${review.username}</p>
+                            <p class="text-sm text-gray-500">${review.apartmentTitle}</p>
+                            <p class="mt-1 text-gray-600">${review.text}</p>
+                        </div>
+                        <button class="text-red-500 hover:text-red-700" onclick="deleteReview('${review.id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+        } catch (err) {
+            console.error('Review load error:', err);
+            reviewsContainer.innerHTML = '<p class="text-red-500">Rəylər yüklənə bilmədi.</p>';
+        }
+    }
 
     async function toggleBanUser(userId) {
         try {
@@ -90,7 +114,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     async function deleteUser(userId) {
-        if (!confirm('v')) return;
+        if (!confirm('Bu istifadəçini silmək istədiyinizə əminsiniz?')) return;
 
         try {
             const response = await fetch(`http://localhost:8000/users/${userId}`, {
@@ -108,11 +132,27 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
+    window.deleteReview = async function(id) {
+        if (!confirm('Bu rəyi silmək istədiyinizə əminsiniz?')) return;
+
+        try {
+            const res = await fetch(`http://localhost:8000/reviews/${id}`, {
+                method: 'DELETE'
+            });
+
+            if (!res.ok) throw new Error('Review delete failed');
+
+            await loadReviews();
+        } catch (err) {
+            console.error('Review delete error:', err);
+            alert('Rəy silinərkən xəta baş verdi');
+        }
+    };
 
     searchInput.addEventListener('input', function() {
         loadUsers(this.value);
     });
 
-    // İlkin yüklə
     await loadUsers();
+    await loadReviews();
 });
