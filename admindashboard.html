@@ -12,146 +12,6 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Turizimaz Admin Dashboard</title>
-  <style>
-    /* Main Content Styles */
-    .main-content {
-      padding: 1.5rem;
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .stat-card {
-      background: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-    }
-    
-    .stat-card-title {
-      font-size: 0.875rem;
-      color: #6b7280;
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-card-value {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #111827;
-    }
-    
-    .stat-card-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    
-    .stat-card-users {
-      background-color: #e0f2fe;
-      color: #0369a1;
-    }
-    
-    .stat-card-bookings {
-      background-color: #dcfce7;
-      color: #166534;
-    }
-    
-    .stat-card-revenue {
-      background-color: #fef3c7;
-      color: #92400e;
-    }
-    
-    .stat-card-reviews {
-      background-color: #fee2e2;
-      color: #991b1b;
-    }
-    
-    .card {
-      background: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1.5rem;
-    }
-    
-    .card-header {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #111827;
-    }
-    
-    .card-link {
-      color: #3b82f6;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    
-    .table-container {
-      overflow-x: auto;
-    }
-    
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .table th {
-      background-color: #f9fafb;
-      padding: 0.75rem 1.5rem;
-      text-align: left;
-      font-weight: 600;
-      color: #374151;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    
-    .table td {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-      color: #4b5563;
-    }
-    
-    .table tr:hover td {
-      background-color: #f9fafb;
-    }
-    
-    .status-badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    
-    .status-pending {
-      background-color: #fef3c7;
-      color: #92400e;
-    }
-    
-    .status-confirmed {
-      background-color: #d1fae5;
-      color: #065f46;
-    }
-    
-    .status-cancelled {
-      background-color: #fee2e2;
-      color: #991b1b;
-    }
-  </style>
 </head>
 <body class="bg-gray-100">
   <div class="flex h-screen overflow-hidden">
@@ -208,184 +68,158 @@
         </div>
       </header>
 
-      <!-- Main Content Area -->
-      <main class="main-content">
-        <!-- Stats Cards -->
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-card-icon stat-card-users">
-              <i class="fas fa-users text-xl"></i>
-            </div>
-            <div class="stat-card-title">Ümumi İstifadəçilər</div>
-            <div class="stat-card-value" id="total-users">0</div>
+      <!-- Dashboard Content -->
+      <main class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-blue-500 text-sm font-medium">Ümumi İstifadəçilər</h3>
+            <p class="text-3xl text-blue-500 font-bold mt-1" id="totalUsers">0</p>
           </div>
-          
-          <div class="stat-card">
-            <div class="stat-card-icon stat-card-bookings">
-              <i class="fas fa-calendar-check text-xl"></i>
-            </div>
-            <div class="stat-card-title">Aktiv Rezervasiyalar</div>
-            <div class="stat-card-value" id="active-bookings">0</div>
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-blue-500 text-sm font-medium">Aktiv Rezervasiyalar</h3>
+            <p class="text-3xl text-blue-500 font-bold mt-1" id="activeBookings">0</p>
           </div>
-          
-          <div class="stat-card">
-            <div class="stat-card-icon stat-card-revenue">
-              <i class="fas fa-money-bill-wave text-xl"></i>
-            </div>
-            <div class="stat-card-title">Ümumi Gəlir</div>
-            <div class="stat-card-value" id="total-revenue">0 AZN</div>
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-blue-500 text-sm font-medium">Yeni Rəylər</h3>
+            <p class="text-3xl text-blue-500 font-bold mt-1" id="newReviews">0</p>
           </div>
-          
-          <div class="stat-card">
-            <div class="stat-card-icon stat-card-reviews">
-              <i class="fas fa-star text-xl"></i>
-            </div>
-            <div class="stat-card-title">Ümumi Rəylər</div>
-            <div class="stat-card-value" id="total-reviews">0</div>
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-blue-500 text-sm font-medium">Ümumi Gəlir</h3>
+            <p class="text-3xl text-blue-500 font-bold mt-1" id="totalRevenue">$0</p>
           </div>
         </div>
 
-        <!-- Recent Activity -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Son Fəaliyyətlər</h3>
-            <a href="/adminuser.html" class="card-link">Hamısını gör</a>
-          </div>
-          <div class="table-container">
-            <table class="table">
-              <thead>
+        <!-- Recent Activities -->
+        <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+          <h3 class="text-lg text-blue-500 font-semibold mb-4">Son Fəaliyyətlər</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
                 <tr>
-                  <th>ID</th>
-                  <th>İstifadəçi</th>
-                  <th>Fəaliyyət</th>
-                  <th>Tarix</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">İstifadəçi</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Fəaliyyət</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Tarix</th>
                 </tr>
               </thead>
-              <tbody id="recent-activity">
-                <!-- Recent activity will be loaded here -->
+              <tbody class="bg-white text-blue-500 divide-y divide-gray-200" id="recentActivities">
+                <!-- JavaScript ilə doldurulacaq -->
               </tbody>
             </table>
           </div>
         </div>
 
         <!-- Recent Bookings -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Son Rezervasiyalar</h3>
-            <a href="/adminbookings.html" class="card-link">Hamısını gör</a>
-          </div>
-          <div class="table-container">
-            <table class="table">
-              <thead>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-lg font-semibold text-blue-500  mb-4">Son Rezervasiyalar</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
                 <tr>
-                  <th>ID</th>
-                  <th>Mənzil</th>
-                  <th>İstifadəçi</th>
-                  <th>Tarix</th>
-                  <th>Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Ev</th>
+                  <th class="px-6 py-3 text-blue-500 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">İstifadəçi</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Tarix</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
-              <tbody id="recent-bookings">
-                <!-- Recent bookings will be loaded here -->
+              <tbody class="bg-white divide-y text-blue-500 divide-gray-200" id="recentBookings">
+                <!-- JavaScript ilə doldurulacaq -->
               </tbody>
             </table>
           </div>
         </div>
+        <!-- Reviews Section -->
+<div class="bg-white p-6 rounded-xl shadow-md mt-8">
+  <h3 class="text-lg font-semibold text-blue-500 mb-4">İstifadəçi Rəyləri</h3>
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">ID</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">İstifadəçi</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Mənzil</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Rəy</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-blue-500 uppercase tracking-wider">Əməliyyat</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200 text-blue-500" id="reviewTableBody">
+        <!-- Rəylər buraya JS ilə əlavə olunacaq -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
       </main>
     </div>
   </div>
 
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load data from db.json
+    document.addEventListener('DOMContentLoaded', function () {
+      // Sadəcə ad yazmaq üçün statik "Admin"
+      document.getElementById('adminName').textContent = 'Admin';
+
+  //logout
+      document.getElementById('logoutBtn').addEventListener('click', function () {
+        window.location.href = '/login.html';
+      });
+
       loadDashboardData();
-      
-      // Set up auto-refresh every 30 seconds
-      setInterval(loadDashboardData, 30000);
-      
-      async function loadDashboardData() {
-        try {
-          const response = await fetch('db.json');
-          const data = await response.json();
-          
-          // Process data
-          const users = data.users || [];
-          const reservations = data.reservations || [];
-          const reviews = data.reviews || [];
-          
-          // Update stats
-          document.getElementById('total-users').textContent = users.length;
-          document.getElementById('active-bookings').textContent = 
-            reservations.filter(r => r.status === 'confirmed').length;
-          
-          const totalRevenue = reservations
-            .filter(r => r.status === 'confirmed')
-            .reduce((sum, r) => sum + (r.totalPrice || 0), 0);
-          document.getElementById('total-revenue').textContent = `${totalRevenue} AZN`;
-          
-          document.getElementById('total-reviews').textContent = reviews.length;
-          
-          // Update recent activity (last 5 registered users)
-          const recentUsers = [...users]
-            .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))
-            .slice(0, 5);
-          
-          const activityTable = document.getElementById('recent-activity');
-          activityTable.innerHTML = recentUsers.map(user => `
-            <tr>
-              <td>${user.id || 'N/A'}</td>
-              <td>${user.fullname || user.username || 'N/A'}</td>
-              <td>Qeydiyyat</td>
-              <td>${formatDate(user.createdAt)}</td>
-            </tr>
-          `).join('');
-          
-          // Update recent bookings (last 5 confirmed bookings)
-          const recentBookings = [...reservations]
-            .filter(b => b.status === 'confirmed')
-            .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))
-            .slice(0, 5);
-          
-          const bookingsTable = document.getElementById('recent-bookings');
-          bookingsTable.innerHTML = recentBookings.map(booking => `
-            <tr>
-              <td>${booking.id || 'N/A'}</td>
-              <td>${getApartmentTitle(booking.apartmentId, data.apartments)}</td>
-              <td>${booking.name || getUserName(booking.userId, users) || 'N/A'}</td>
-              <td>${formatDate(booking.startDate)} - ${formatDate(booking.endDate)}</td>
-              <td><span class="status-badge status-confirmed">confirmed</span></td>
-            </tr>
-          `).join('');
-          
-        } catch (error) {
-          console.error('Error loading dashboard data:', error);
-        }
-      }
-      
-      // Helper functions
-      function formatDate(dateString) {
-        if (!dateString || dateString.includes('Invalid')) return 'N/A';
-        try {
-          const date = new Date(dateString);
-          return date.toLocaleDateString('az-AZ');
-        } catch {
-          return 'N/A';
-        }
-      }
-      
-      function getApartmentTitle(apartmentId, apartments) {
-        if (!apartments) return 'N/A';
-        const apartment = apartments.find(a => a.id == apartmentId);
-        return apartment ? apartment.title : 'N/A';
-      }
-      
-      function getUserName(userId, users) {
-        if (!users) return 'N/A';
-        const user = users.find(u => u.id == userId);
-        return user ? user.fullname || user.username : 'N/A';
-      }
     });
-    
+
+    async function loadDashboardData() {
+      try {
+        const usersResponse = await fetch('http://localhost:8000/users');
+        const bookingsResponse = await fetch('http://localhost:8000/bookings');
+
+        if (!usersResponse.ok || !bookingsResponse.ok) throw new Error('Data fetch error');
+
+        const users = await usersResponse.json();
+        const bookings = await bookingsResponse.json();
+
+        document.getElementById('totalUsers').textContent = users.length;
+        document.getElementById('activeBookings').textContent = bookings.filter(b => b.status === 'active').length;
+
+        updateRecentActivities(users);
+        updateRecentBookings(bookings);
+      } catch (error) {
+        console.error('Dashboard yüklənmə xətası:', error);
+      }
+    }
+
+    function updateRecentActivities(users) {
+      const activitiesTable = document.getElementById('recentActivities');
+      const recentUsers = users.slice(-5).reverse();
+      activitiesTable.innerHTML = recentUsers.map(user => `
+        <tr>
+          <td class="px-6 py-4">${user.id}</td>
+          <td class="px-6 py-4">${user.fullname || user.username}</td>
+          <td class="px-6 py-4">Qeydiyyat</td>
+          <td class="px-6 py-4">${new Date(user.createdAt).toLocaleDateString()}</td>
+        </tr>
+      `).join('');
+    }
+
+    function updateRecentBookings(bookings) {
+      const bookingsTable = document.getElementById('recentBookings');
+      const recentBookings = bookings.slice(-5).reverse();
+      bookingsTable.innerHTML = recentBookings.map(booking => `
+        <tr>
+          <td class="px-6 py-4">${booking.id}</td>
+          <td class="px-6 py-4">${booking.apartmentName || 'Mənzil'}</td>
+          <td class="px-6 py-4">${booking.userName || 'İstifadəçi'}</td>
+          <td class="px-6 py-4">${new Date(booking.date).toLocaleDateString()}</td>
+          <td class="px-6 py-4">
+            <span class="px-2 py-1 text-xs rounded-full ${booking.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
+              ${booking.status || 'pending'}
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    }
   </script>
+<script type="module" src="/src/jsfolder/adminjsfolder/admindashboard.js"></script>
+
 </body>
 </html>

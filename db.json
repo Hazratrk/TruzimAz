@@ -180,14 +180,6 @@
       ],
       "description": "A large and spacious 4-room villa located on the outskirts of Baku. Includes a pool and garden.",
       "rules": "Cleaning service is provided every 3 days."
-    },
-    {
-      "id": "3ba1",
-      "title": "3-Room Frame",
-      "location": "Baku, Khazar",
-      "nightPrice": 6777,
-      "image": "https://grkids.com/wp-content/uploads/2021/01/Empire-pool-house-rental.jpg",
-      "description": "asdfghjkl;"
     }
   ],
   "reservations": [
@@ -323,6 +315,46 @@
       "endDate": "2025-05-19",
       "apartmentId": "2",
       "totalPrice": 1320
+    },
+    {
+      "id": "f1e9",
+      "name": "Adil Rzayev",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-16",
+      "apartmentId": "15",
+      "totalPrice": 250
+    },
+    {
+      "id": "d0cd",
+      "name": "dara",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-16",
+      "apartmentId": "2",
+      "totalPrice": 330
+    },
+    {
+      "id": "f7d9",
+      "name": "oscar",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-17",
+      "apartmentId": "2",
+      "totalPrice": 660
+    },
+    {
+      "id": "1270",
+      "name": "oscar",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-17",
+      "apartmentId": "2",
+      "totalPrice": 660
+    },
+    {
+      "id": "780a",
+      "name": "Renat",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-19",
+      "apartmentId": "4",
+      "totalPrice": 840
     }
   ],
   "contact": [
@@ -403,6 +435,16 @@
       "message": "is free?",
       "userId": null,
       "createdAt": "2025-05-14T22:49:14.256Z"
+    },
+    {
+      "id": "291e",
+      "name": "Adil Rzayev",
+      "email": "adil@gmail.com",
+      "phone": "0504415676",
+      "subject": "suggestion",
+      "message": "can you help me please? i can't chose apartmetns",
+      "userId": null,
+      "createdAt": "2025-05-15T07:24:53.636Z"
     }
   ],
   "users": [
@@ -471,7 +513,34 @@
       "password": "12345",
       "role": "user",
       "createdAt": "2025-05-14T22:52:39.209Z",
-      "balance": 12345688
+      "balance": 10050
+    },
+    {
+      "id": "87f7",
+      "fullname": "testmail",
+      "username": "testmail",
+      "email": "testmail@gmail.com",
+      "password": "123",
+      "role": "user",
+      "createdAt": "2025-05-15T07:00:26.363Z"
+    },
+    {
+      "id": "6d1f",
+      "fullname": "Adil Rzayev",
+      "username": "123456789",
+      "email": "salaa@gmail.com",
+      "password": "123456789",
+      "role": "user",
+      "createdAt": "2025-05-15T07:29:43.953Z"
+    },
+    {
+      "id": "5cf5",
+      "fullname": "sasa",
+      "username": "sasa",
+      "email": "sasa@gmail.com",
+      "password": "sasa2007",
+      "role": "user",
+      "createdAt": "2025-05-15T07:37:32.004Z"
     }
   ],
   "bookings": [
